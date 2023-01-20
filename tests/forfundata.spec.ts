@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test';
 
+const TEST_PAGE = 'https://forfundataproject.web.app/';
+
 test('Has expected title', async ({ page }) => {
-  await page.goto('https://forfundataproject.web.app/');
+  await page.goto(TEST_PAGE);
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle("ForFun");
 });
 
 test("Can click into a user's posts", async ({ page }) => {
-  await page.goto('https://forfundataproject.web.app/');
-  await page.content();
+  await page.goto(TEST_PAGE);
 
   // Pick a user and click on the posts
   const post = await page.locator('mat-expansion-panel').first();
@@ -33,14 +34,14 @@ test("Can click into a user's posts", async ({ page }) => {
 });
 
 test("Can click into a post's comments", async ({ page }) => {
-  await page.goto('https://forfundataproject.web.app/');
+  await page.goto(TEST_PAGE);
 
   // TODO:  Fill in test here
   // Can we leverage any ids on the elements?
 });
 
 test('Has expected number of distinct users', async ({ page }) => {
-  await page.goto('https://forfundataproject.web.app/');
+  await page.goto(TEST_PAGE);
 
   // TODO:  Fill in test here
 });
